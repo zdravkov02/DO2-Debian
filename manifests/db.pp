@@ -16,19 +16,19 @@ class { '::mysql::server':
 }
 
 
-mysql::db { 'votingtime':
-  user        => 'root',
-  password    => '12345',
-  host        => '%',
-  sql         => ['/code/app1/db/db_setup.sql'],
-  enforce_sql => true,
-}
-
 mysql::db { 'bulgaria':
   user        => 'root',
   password    => '12345',
   host        => '%',
   sql         => ['/code/app2/db/db_setup.sql'],
+  enforce_sql => true,
+}
+
+mysql::db { 'tools':
+  user        => 'root',
+  password    => '12345',
+  host        => '%',
+  sql         => ['/code/app4/db/db_setup.sql'],
   enforce_sql => true,
 }
 

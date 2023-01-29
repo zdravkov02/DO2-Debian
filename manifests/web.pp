@@ -24,24 +24,18 @@ file_line { 'hosts-db':
 
 file { '/etc/apache2/sites-enabled/vhost-app1.conf':
     ensure => present,
-    content => 'Listen 8081
-<VirtualHost *:8081>
-  DocumentRoot "/var/www/app1"
+    content => 'Listen 8001
+<VirtualHost *:8001>
+  DocumentRoot "/var/www/app2"
 </VirtualHost>',
 }
 
 file { '/etc/apache2/sites-enabled/vhost-app2.conf':
     ensure => present,
-    content => 'Listen 8082
-<VirtualHost *:8082>
-  DocumentRoot "/var/www/app2"
+    content => 'Listen 8002
+<VirtualHost *:8002>
+  DocumentRoot "/var/www/app4"
 </VirtualHost>',
-}
-
-file { '/var/www/app1':
-  ensure => 'directory',
-  recurse => true,
-  source => '/code/app1/web',
 }
 
 file { '/var/www/app2':
@@ -50,17 +44,23 @@ file { '/var/www/app2':
   source => '/code/app2/web',
 }
 
+file { '/var/www/app4':
+  ensure => 'directory',
+  recurse => true,
+  source => '/code/app4/web',
+}
+
 class { 'firewall': }
 
-firewall { '000 accept 8081/tcp':
+firewall { '000 accept 8001/tcp':
   action   => 'accept',
-  dport    => 8081,
+  dport    => 8001,
   proto    => 'tcp',
 }
 
-firewall { '000 accept 8082/tcp':
+firewall { '000 accept 8002/tcp':
   action   => 'accept',
-  dport    => 8082,
+  dport    => 8002,
   proto    => 'tcp',
 }
 

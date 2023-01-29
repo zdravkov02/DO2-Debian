@@ -19,7 +19,7 @@ Vagrant.configure(2) do |config|
       ansible.galaxy_roles_path = "/etc/ansible/roles"
       ansible.galaxy_command = "sudo ansible-galaxy install --role-file=%{role_file} --roles-path=%{roles_path} --force"
     end
-    docker.vm.provision "shell", path: "initial-config/test.sh"
+    docker.vm.provision "shell", path: "initial-config/terraform_deploy.sh"
     docker.vm.provider "virtualbox" do |v|
       v.gui = false
       v.memory = 2048
