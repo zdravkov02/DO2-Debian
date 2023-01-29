@@ -24,6 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 1,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -356,8 +357,8 @@
     "list": []
   },
   "time": {
-    "from": "2023-01-28T12:29:16.376Z",
-    "to": "2023-01-28T12:35:21.609Z"
+    "from": "now-1h",
+    "to": "now"
   },
   "timepicker": {},
   "timezone": "",
